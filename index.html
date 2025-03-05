@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Калькулятор</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 300px;
+            margin: 20px auto;
+            font-family: 'Inter';
+            padding: 6px;
+            -webkit-box-shadow: 0px 0px 21px 0px rgba(164, 170, 176, 0.1);
+            -moz-box-shadow: 0px 0px 21px 0px rgba(164, 170, 176, 0.1);
+            box-shadow: 0px 0px 21px 0px rgba(164, 170, 176, 0.1);
+        }
+
+        .container * {
+            width: inherit;
+        }
+
+        #result {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+        input[type=range] {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 2px; /* Высота полосы */
+            border-radius: 5px;
+            background: #FF008B;
+            outline: none; /* Убираем outline при фокусе */
+        }
+
+        /* Стили для активной части полосы */
+        input[type="range"]::-webkit-slider-runnable-track {
+            -webkit-appearance: none;
+            height: 5px;
+            border-radius: 5px;
+        }
+
+        /* Бегунок */
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #FF008B;
+            cursor: pointer;
+            margin-top: -7px; /* Центрирование ползунка по вертикали */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Расчёт оплаты таргетолога</h2>
+    <label for="slider1">Количество клиентов в месяц</label>
+    <input type="range" id="slider1" min="1" max="10" value="1">
+    <span id="value1">1</span>
+
+    <label for="slider2">Стоимость ведения одного проекта, $</label>
+    <input type="range" id="slider2" min="1" max="1000" value="1">
+    <span id="value2">1</span>
+
+
+    <div>Зароботная плата в итоге составит <span id="result">1</span></div>
+</div>
+
+
+<script>
+    const slider1 = document.getElementById('slider1');
+    const slider2 = document.getElementById('slider2');
+    const result = document.getElementById('result');
+    const value1 = document.getElementById('value1');
+    const value2 = document.getElementById('value2');
+
+    function calculate() {
+        const val1 = parseInt(slider1.value, 10);
+        const val2 = parseInt(slider2.value, 10);
+        result.textContent = val1 * val2;
+        value1.textContent = val1;
+        value2.textContent = val2;
+    }
+    slider1.addEventListener('input', calculate);
+    slider2.addEventListener('input', calculate);
+
+    calculate();
+
+
+</script>
+
+</body>
+</html>
+
