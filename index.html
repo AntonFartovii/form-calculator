@@ -4,38 +4,63 @@
     <meta charset="UTF-8">
     <title>Калькулятор</title>
     <style>
+        .container * {
+            width: inherit;
+        }
+
         .container {
             display: flex;
             flex-direction: column;
             gap: 10px;
             width: 300px;
             margin: 20px auto;
-            font-family: 'Inter';
+            text-transform: uppercase;
+            font-family: 'Inter,  sans-serif';
             padding: 6px;
-            -webkit-box-shadow: 0px 0px 21px 0px rgba(164, 170, 176, 0.1);
-            -moz-box-shadow: 0px 0px 21px 0px rgba(164, 170, 176, 0.1);
-            box-shadow: 0px 0px 21px 0px rgba(164, 170, 176, 0.1);
+            -webkit-box-shadow: 0 0 21px 0 rgba(164, 170, 176, 0.1);
+            -moz-box-shadow: 0 0 21px 0 rgba(164, 170, 176, 0.1);
+            box-shadow: 0 0 21px 0 rgba(164, 170, 176, 0.1);
+            color: #393838;
         }
 
-        .container * {
-            width: inherit;
-        }
-
-        #result {
-            font-size: 20px;
-            font-weight: bold;
+        .h2 {
             text-align: center;
+            font-size: 22px;
+            font-weight: 700;
         }
+
+        .label {
+            font-weight: 600;
+            font-size: 16px;
+            padding: 10px 0;
+        }
+
+        .range-box {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .range-box span {
+            width: min-content;
+            font-weight: 500;
+            font-size: 14px;
+            padding: 5px 0;
+        }
+
+        .result {
+            font-weight: 500;
+            font-size: 18px;
+        }
+
         input[type=range] {
             -webkit-appearance: none;
             appearance: none;
-            height: 2px; /* Высота полосы */
+            height: 2px;
             border-radius: 5px;
             background: #FF008B;
-            outline: none; /* Убираем outline при фокусе */
+            outline: none;
         }
 
-        /* Стили для активной части полосы */
         input[type="range"]::-webkit-slider-runnable-track {
             -webkit-appearance: none;
             height: 5px;
@@ -51,24 +76,24 @@
             border-radius: 50%;
             background: #FF008B;
             cursor: pointer;
-            margin-top: -7px; /* Центрирование ползунка по вертикали */
+            margin-top: -7px;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h2>Расчёт оплаты таргетолога</h2>
-    <label for="slider1">Количество клиентов в месяц</label>
+    <span class="h2">Расчёт оплаты таргетолога</span>
+    <label class="label" for="slider1">Количество клиентов в месяц</label>
     <input type="range" id="slider1" min="1" max="10" value="1">
-    <span id="value1">1</span>
+    <div class="range-box"><span>1</span><span>10</span></div>
 
-    <label for="slider2">Стоимость ведения одного проекта, $</label>
-    <input type="range" id="slider2" min="1" max="1000" value="1">
-    <span id="value2">1</span>
+    <label class="label" for="slider2">Стоимость ведения одного проекта, $</label>
+    <input type="range" id="slider2" min="1" max="1000" value="1" >
+    <div class="range-box"><span>1</span><span>100</span></div>
 
 
-    <div>Зароботная плата в итоге составит <span id="result">1</span></div>
+    <div class="result"><span id="result">1</span>$ Зароботная плата в итоге составит</div>
 </div>
 
 
