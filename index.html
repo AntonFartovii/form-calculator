@@ -13,7 +13,7 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
-            width: 300px;
+            max-width: 900px;
             margin: 20px auto;
             text-transform: uppercase;
             font-family: 'Inter,  sans-serif';
@@ -31,6 +31,8 @@
             font-weight: 600;
             font-size: 16px;
             padding: 10px 0;
+            display: flex;
+            align-items: center;
         }
 
         .range-box {
@@ -83,22 +85,30 @@
             height: 20px;
         }
 
+        .value {
+            border: 1px dotted #FF008B;
+            padding: 3px 6px;
+            margin: 0 5px;
+            max-width: 50px;
+            text-align: center;
+        }
+
     </style>
 </head>
 <body>
 
 <div class="container">
     <span class="h2">Расчёт оплаты таргетолога</span>
-    <label class="label" for="slider1">Количество клиентов в месяц</label>
+    <label class="label" for="slider1">Количество клиентов в месяц <div class="value" id="value1"></div></label>
     <input type="range" id="slider1" min="1" max="10" value="1">
     <div class="range-box"><span>1</span><span>10</span></div>
 
-    <label class="label" for="slider2">Стоимость ведения одного проекта, $</label>
+    <label class="label" for="slider2">Стоимость ведения одного проекта, $ <div class="value" id="value2"></div></label>
     <input type="range" id="slider2" min="1" max="1000" value="1" >
     <div class="range-box"><span>1</span><span>100</span></div>
 
 
-    <div class="result"><span id="result">1</span>$ Заработная плата в итоге составит</div>
+    <div class="result">Заработная плата в итоге составит - <span id="result">1</span>&nbsp;$</div>
 </div>
 
 
